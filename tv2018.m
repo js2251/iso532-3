@@ -1,4 +1,4 @@
-function [Loudness, ShortTermLoudness, LongTermLoudness] = tv2018( filenameSound, dBMax, filenameFilter, s, Fs )
+function [Loudness, ShortTermLoudness, LongTermLoudness, InstantaneousLoudnessLeft, InstantaneousLoudnessRight] = tv2018( filenameSound, dBMax, filenameFilter, s, Fs )
 
 % calculate loudness according to Moore, Glasberg & Schlittenlacher (2016)
 % developed from:
@@ -45,6 +45,8 @@ Loudness = max(LongTermLoudness);
 
 ShortTermLoudness = ShortTermLoudnessLeft + ShortTermLoudnessRight;
 
+InstantaneousLoudnessLeft = sum(InstantaneousSpecificLoudnessLeft,2) / 4;
+InstantaneousLoudnessRight = sum(InstantaneousSpecificLoudnessRight,2) / 4;
 
 % toc
 
