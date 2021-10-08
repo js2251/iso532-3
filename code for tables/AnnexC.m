@@ -55,7 +55,7 @@ for L = 20:20:80
     s = s';
     z = zeros(size(s));
     Loudness(round(L/20)) = tv2018( '', dBMax, 'ed_32000.mat', [s z], Fs );
-    audiowrite(['sounds Annex C/C1_3 ' num2str(L) ' dB.wav'] ,s,Fs,'BitsPerSample',24);
+    audiowrite(['sounds Annex C/C1_3 ' num2str(L) ' dB.wav'] ,[s z],Fs,'BitsPerSample',24);
 end
 
 disp(['Loudness [sone]:       ' num2str(Loudness, '%8.2f')])
@@ -220,7 +220,7 @@ for LT=0:10:50
     s = s';
     z = zeros(size(s));
     Loudness(round(LT/10)+1) = tv2018( '', dBMax, 'ed_32000.mat', [s z], Fs );
-    audiowrite(['sounds Annex C/C2_5 ' num2str(LT) ' dB.wav'] ,s,Fs,'BitsPerSample',24);
+    audiowrite(['sounds Annex C/C2_5 ' num2str(LT) ' dB.wav'] ,[s z],Fs,'BitsPerSample',24);
 end
 
 disp('Loudness [sone]:')
